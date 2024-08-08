@@ -45,6 +45,8 @@ export const CarContainer: React.FC = () => {
             <button onClick={() => navigate("/")}>Back to Login</button>
             <button onClick={() => navigate("/addcar")}>Add New Car</button>
             <button>Profile</button>
+            {/* I want ONLY MANAGERS to be able to see all users from here */}
+            {store.loggedInUser.role === "admin" ? <button onClick={() => navigate("/users")}>Users</button> : <></>}
         </div>
 
             {/* Sending the entire cars array to get rendered in the Car component table*/}

@@ -39,6 +39,8 @@ public class UserController {
     @GetMapping //HTTP GET Requests ending in /users will hit this method
     public ResponseEntity<List<User>> getAllUsers() {
 
+        //TODO: have this send back an outgoingUserDTO instead, so password isn't sent.
+
         //not much error handling needed, no variables, nothing crazy that can go wrong
         List<User> users = us.getAllUsers();
 
