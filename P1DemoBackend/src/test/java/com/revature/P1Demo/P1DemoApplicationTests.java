@@ -35,23 +35,25 @@ class P1DemoApplicationTests {
 
 	//A RestTemplate test for insertCar in the Controller----------------/
 
-	@Test
-	public void insertCarTestRestTemplate(){
+	//commented this out because our EC2 will have no idea what "localhost:8080" is.
 
-		//Create a TestRestTemplate object to send HTTP Requests
-		TestRestTemplate restTemplate = new TestRestTemplate();
-
-		//Create a new IncomingCarDTO to use in our test
-		IncomingCarDTO newCar = new IncomingCarDTO("Toyota", "Camry", true, 1);
-
-		//send the new car to our insertCar method with RestTemplate, save the returned Car
-		Car returnedCar = restTemplate.postForObject("http://localhost:8080/cars", newCar, Car.class);
-
-		//super basic tests on the returned Car object
-		assertNotNull(returnedCar);
-		assertTrue(returnedCar.isFourWheelDrive());
-		assertEquals("Toyota", returnedCar.getMake());
-	}
+//	@Test
+//	public void insertCarTestRestTemplate(){
+//
+//		//Create a TestRestTemplate object to send HTTP Requests
+//		TestRestTemplate restTemplate = new TestRestTemplate();
+//
+//		//Create a new IncomingCarDTO to use in our test
+//		IncomingCarDTO newCar = new IncomingCarDTO("Toyota", "Camry", true, 1);
+//
+//		//send the new car to our insertCar method with RestTemplate, save the returned Car
+//		Car returnedCar = restTemplate.postForObject("http://localhost:8080/cars", newCar, Car.class);
+//
+//		//super basic tests on the returned Car object
+//		assertNotNull(returnedCar);
+//		assertTrue(returnedCar.isFourWheelDrive());
+//		assertEquals("Toyota", returnedCar.getMake());
+//	}
 
 	//HEY what if I DON'T want a real request that affects the real DB??
 	//That's when you might want to use MockMVC to mock the HTTP Request instead
