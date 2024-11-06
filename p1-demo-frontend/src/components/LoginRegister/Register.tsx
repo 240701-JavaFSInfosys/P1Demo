@@ -28,9 +28,13 @@ export const Register: React.FC = () => {
 
         /*NOTE: what if I have like 5 inputs? do I do if, else if, else if, else if, else??
 
-        You definitiely could and it'd be fine. You could have each input be its own variable,
-        instead of having it as a state object from the start.
-        You would then just need to create an object at POST time with all the individual variables */
+        You definitiely could and it'd be fine. OR:
+
+            //save input.target.name and input.target.value into two variables (Destructuring!)
+            const { name, value } = input.target;
+            //annoying syntax I know. We need to send in the entire user object to make a change to one field.
+            //"Take whatever input was changed, and set the matching field in user to the value in the input"
+            setUser((user) => ({ ...user, [name]: value }));*/
     }
 
     //Function to send a POST request with our user state data to register a user in the backend
